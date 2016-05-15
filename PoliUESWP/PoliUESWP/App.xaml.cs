@@ -7,6 +7,10 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PoliUESWP.Resources;
+using System.Threading.Tasks;
+using System.IO;
+using SQLite;
+using PoliUESWP.ClasesPorTabla;
 
 namespace PoliUESWP
 {
@@ -55,7 +59,40 @@ namespace PoliUESWP
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
-        }
+            //////////////////////////////////
+            string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            if (!FileExists("db.sqlite").Result)
+            {
+
+                using (var db = new SQLiteConnection(dbPath))
+                {
+
+                    db.CreateTable<Actividad>();
+                }
+
+            }
+            /////////////////////////////////
+       }
+
+           
+        private async Task<bool> FileExists(string fileName) {
+                var result = false;
+                try
+                {
+                    var store = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+                    result = true;
+                }
+                catch {
+
+                }
+                return result;
+            }
+        
+            //////////////////////////////////
+
+
+        
 
         // Código para ejecutar cuando la aplicación se inicia (p.ej. a partir de Inicio)
         // Este código no se ejecutará cuando la aplicación se reactive
