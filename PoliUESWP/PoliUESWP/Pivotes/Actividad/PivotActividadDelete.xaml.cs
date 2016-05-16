@@ -72,7 +72,7 @@ namespace PoliUESWP.Pivotes.Actividad
 
         private void listaActividad_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            PoliUESWP.ClasesPorTabla.Actividad items = (ClasesPorTabla.Actividad)listaActividades.SelectedItem;
+            ClasesPorTabla.Actividad items = (ClasesPorTabla.Actividad)listaActividades.SelectedItem;
 
             txtIdActividad.Text = items.IdActividad.ToString();
             txtPrioridad.Text = items.NombreActividad;

@@ -76,17 +76,17 @@ namespace PoliUESWP.MetodosSQLite
         }
         ///////////////////////////////////////////////////////
         //Metodo Borrar
-        public string[] Delete(string dbPath, int idActividad)
+        public string[] Delete(string dbPath, int idSolicitud)
         {
-            if (idActividad > 0 || idActividad.ToString() != String.Empty)
+            if (idSolicitud > 0 || idSolicitud.ToString() != String.Empty)
             {
                 using (var db = new SQLiteConnection(dbPath))
                 {
-                    var existing = db.Query<Actividad>("SELECT * FROM Actividad").Where(c => c.IdActividad == idActividad).FirstOrDefault();
+                    var existing = db.Query<Solicitud>("SELECT * FROM Solicitud").Where(c => c.IdSolicitud == idSolicitud).FirstOrDefault();
 
                     if (existing != null)
                     {
-                        string[] vec = new string[] { existing.IdActividad.ToString(), existing.NombreActividad.ToString(), existing.DescripcionActividad, "La Actividad se elimino correctamente" };
+                        string[] vec = new string[] { existing.IdSolicitud.ToString(), "La Solicitud se elimino correctamente" };
 
                         db.RunInTransaction(() =>
                         {
@@ -96,14 +96,14 @@ namespace PoliUESWP.MetodosSQLite
                         return vec;
                     }
                     else {
-                        string[] vec = new string[] { idActividad.ToString(), "", "", "La Actividad no existe" };
+                        string[] vec = new string[] { idSolicitud.ToString(), "La Solicitud no existe" };
                         return vec;
                     }
                 }
             }
             else {
-                MessageBox.Show("No a digitado el idActividad a borrar");
-                string[] vec = new string[] { "", "", "", "" };
+                MessageBox.Show("No a digitado el idSolicitud a borrar");
+                string[] vec = new string[] { "", "" };
                 return vec;
             }
         }

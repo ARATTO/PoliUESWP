@@ -80,7 +80,39 @@ namespace PoliUESWP.MetodosSQLite
                 return vec;
             }
         }
+        ///////////////////////////////////////////////////////
+        //Metodo Borrar
+        public string[] Delete(string dbPath, int idSolicitud)
+        {
+            if (idSolicitud > 0 || idSolicitud.ToString() != String.Empty)
+            {
+                using (var db = new SQLiteConnection(dbPath))
+                {
+                    var existing = db.Query<DetalleSolicitud>("SELECT * FROM DetalleSolicitud").Where(c => c.IDSolicitud == idSolicitud).FirstOrDefault();
 
+                    if (existing != null)
+                    {
+                        string[] vec = new string[] { existing.IdDetalleSolicitud.ToString(), "Detalle Solicitud se elimino correctamente" };
+
+                        db.RunInTransaction(() =>
+                        {
+                            db.Delete(existing);
+                        });
+
+                        return vec;
+                    }
+                    else {
+                        string[] vec = new string[] { idSolicitud.ToString(), "NO existe Detalle asociado a esta Solicitud" };
+                        return vec;
+                    }
+                }
+            }
+            else {
+                MessageBox.Show("No a digitado el idSolicitud a borrar");
+                string[] vec = new string[] { "", "" };
+                return vec;
+            }
+        }
         ///////////////////////////////////////////////////////
         //Campos Vacios
 
