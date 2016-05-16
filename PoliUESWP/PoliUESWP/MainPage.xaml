@@ -50,8 +50,8 @@
             <Button x:Name="btnActividad" Content="ACTIVIDAD" HorizontalAlignment="Left" Margin="226,326,0,0" VerticalAlignment="Top" Height="134" Width="211" Click="btnActividad_Click"/>
             <Button x:Name="btnTarifa" Content="TARIFA" HorizontalAlignment="Left" Margin="221,460,0,0" VerticalAlignment="Top" Height="121" Width="216" Click="btnTarifa_Click"/>
             <Button x:Name="btnArea" Content="AREA" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Height="250" Width="206" Click="btnArea_Click"/>
-            <Button x:Name="btnSolicitud" Content="SOLICITUD" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Height="209" Width="436" Click="btnSolicitud_Click"/>
-            <Button x:Name="btnDetalleSolicitud" Content="DETALLE SOLICITUD" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Height="102" Width="427"/>
+            <Button x:Name="btnSolicitud" Content="SOLICITUD" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Height="311" Width="436" Click="btnSolicitud_Click"/>
+            
 
         </Grid>
 

@@ -77,5 +77,34 @@ namespace PoliUESWP.Pivotes.Solicitud
             var pers = db.Table<ClasesPorTabla.Solicitud>().Where(c => c.IdSolicitud > 0).ToList();
             listaSolicitudes.ItemsSource = pers;
         }
+
+        private void listaSolicitudes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ClasesPorTabla.Solicitud items = (ClasesPorTabla.Solicitud)listaSolicitudes.SelectedItem;
+
+            txtidSolicitud.Text = items.IdSolicitud.ToString();
+
+            MetodoSQLiteSolicitud sol = new MetodoSQLiteSolicitud();
+            MetodoSQLiteDetalleSolicitud det = new MetodoSQLiteDetalleSolicitud();
+
+   
+                String[] res = sol.Consulta(dbPath, Int32.Parse(txtidSolicitud.Text));
+                String[] resDet = det.Consulta(dbPath, Int32.Parse(txtidSolicitud.Text));
+
+                    txtMotivo.Text = res[1];
+                    txtFecha.Text = res[2];
+                    txtActividad.Text = res[3];
+                    txtTarifa.Text = res[4];
+
+                    txtFechaInicio.Text = resDet[1];
+                    txtFechaFin.Text = resDet[2];
+                    txtMonto.Text = resDet[3];
+                    txtArea.Text = resDet[5];
+
+            pivotPrincipal.SelectedItem = itemSolicitud;
+        }
+
+       
+        
     }
 }

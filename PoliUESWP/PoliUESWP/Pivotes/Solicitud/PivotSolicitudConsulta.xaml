@@ -20,7 +20,7 @@
         <phone:Pivot Title="SOLICITUD" x:Name="pivotPrincipal">
             <!--Elemento Pivot dos-->
             <phone:PivotItem Header="SOLICITUDES">
-                <phone:LongListSelector x:Name="listaSolicitudes" Margin="0,0,-12,0" ItemsSource="{Binding Act}">
+                <phone:LongListSelector x:Name="listaSolicitudes" Margin="0,0,-12,0" ItemsSource="{Binding Act}" SelectionChanged="listaSolicitudes_SelectionChanged">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">

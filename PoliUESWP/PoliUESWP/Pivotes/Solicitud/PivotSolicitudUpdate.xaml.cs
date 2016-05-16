@@ -174,6 +174,21 @@ namespace PoliUESWP.Pivotes.Solicitud
             txtSolicitud.Text = items.IdSolicitud.ToString();
             ////////
             solActual = items;
+
+            MetodoSQLiteSolicitud sol = new MetodoSQLiteSolicitud();
+            MetodoSQLiteDetalleSolicitud det = new MetodoSQLiteDetalleSolicitud();
+
+
+            String[] res = sol.Consulta(dbPath, Int32.Parse(txtSolicitud.Text));
+            String[] resDet = det.Consulta(dbPath, Int32.Parse(txtSolicitud.Text));
+
+            txtMotivo.Text = res[1];
+            txtActividad.Text = res[3];
+            txtTarifa.Text = res[4];
+
+            fechaInicio.Value = Convert.ToDateTime(resDet[1]);
+            fechaFin.Value = Convert.ToDateTime(resDet[2]);
+            txtArea.Text = resDet[5];
             ////////
             pivotPrincipal.SelectedItem = itemSolicitud;
         }
