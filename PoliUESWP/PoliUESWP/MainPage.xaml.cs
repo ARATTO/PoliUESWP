@@ -37,6 +37,11 @@ namespace PoliUESWP
             NavigationService.Navigate(new Uri("/Menus/MenuArea.xaml?", UriKind.Relative));
         }
 
+        private void btnSolicitud_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Menus/MenuSolicitud.xaml?", UriKind.Relative));
+        }
+
 
         // Código de ejemplo para compilar una ApplicationBar traducida
         //private void BuildLocalizedApplicationBar()

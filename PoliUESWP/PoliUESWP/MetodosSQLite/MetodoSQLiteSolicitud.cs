@@ -38,7 +38,7 @@ namespace PoliUESWP.MetodosSQLite
                 }
             }
             else {
-                return "";
+                return String.Empty;
             }
         }
         ///////////////////////////////////////////////////////
@@ -75,6 +75,100 @@ namespace PoliUESWP.MetodosSQLite
             }
         }
         ///////////////////////////////////////////////////////
+        //Metodo Borrar
+        public string[] Delete(string dbPath, int idActividad)
+        {
+            if (idActividad > 0 || idActividad.ToString() != String.Empty)
+            {
+                using (var db = new SQLiteConnection(dbPath))
+                {
+                    var existing = db.Query<Actividad>("SELECT * FROM Actividad").Where(c => c.IdActividad == idActividad).FirstOrDefault();
+
+                    if (existing != null)
+                    {
+                        string[] vec = new string[] { existing.IdActividad.ToString(), existing.NombreActividad.ToString(), existing.DescripcionActividad, "La Actividad se elimino correctamente" };
+
+                        db.RunInTransaction(() =>
+                        {
+                            db.Delete(existing);
+                        });
+
+                        return vec;
+                    }
+                    else {
+                        string[] vec = new string[] { idActividad.ToString(), "", "", "La Actividad no existe" };
+                        return vec;
+                    }
+                }
+            }
+            else {
+                MessageBox.Show("No a digitado el idActividad a borrar");
+                string[] vec = new string[] { "", "", "", "" };
+                return vec;
+            }
+        }
+
+        ///////////////////////////////////////////////////////
+        //Metodo Consulta
+        
+        public string[] Consulta(string dbPath, int idSolicitud)
+        {
+            if (!(idSolicitud.ToString() == String.Empty) & idSolicitud > 0 )
+            {
+                using (var db = new SQLiteConnection(dbPath))
+                {
+                    var existing = db.Query<Solicitud>("SELECT * FROM Solicitud").Where(c => c.IdSolicitud == idSolicitud).FirstOrDefault();
+
+                    if (existing != null)
+                    {
+                        string[] vec = new string[] {
+                            existing.IdSolicitud.ToString(),
+                            existing.Motivo,
+                            existing.Fecha,
+                            existing.Actividad.ToString(),
+                            existing.Tarifa.ToString(),
+                            "Encontrado"
+                        };
+                        return vec;
+                    }
+                    else
+                    {
+                        string[] vec = new string[] { "", "", "","","", "La Solicitud no existe" };
+                        return vec;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR debe digitar el Id de la Solicitud");
+                string[] vec = new string[] { "", "", "", "" ,"","" };
+                return vec;
+            }
+        }
+        
+        ///////////////////////////////////////////////////////
+        //Metodo Consulta Ultimo
+        public int ConsultaUltimo(string dbPath)
+        {
+            
+                using (var db = new SQLiteConnection(dbPath))
+                {
+                    var existing = db.Query<Solicitud>("SELECT * FROM Solicitud").Last();
+
+                    if (existing != null)
+                    {
+                        int id = existing.IdSolicitud;
+                        return id;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+            
+            
+        }
+        ///////////////////////////////////////////////////////
         //Campos Vacios
 
         public bool vacios(string motivo, string fecha, int actividad, int tarifa)
@@ -92,15 +186,15 @@ namespace PoliUESWP.MetodosSQLite
                 }
                 else
                 {
-                    if (actividad <= 0)
+                    if (actividad.ToString() == String.Empty)
                     {
-                        MessageBox.Show("ERROR la Actividad ingresada es incorrecta");
+                        MessageBox.Show("ERROR no hay Actividad ingresada ");
                         return true;
                     }
                     else {
-                        if (tarifa <= 0)
+                        if (tarifa.ToString() == String.Empty)
                         {
-                            MessageBox.Show("ERROR tarifa ingresada incorrecta");
+                            MessageBox.Show("ERROR no hay Tarifa ingresada");
                             return true;
                         }
                         else {

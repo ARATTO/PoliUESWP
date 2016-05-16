@@ -76,7 +76,6 @@ namespace PoliUESWP.Pivotes.Tarifa
             txtTarifaUnica.Text = String.Empty;
 
             pivotPrincipal.SelectedItem = itemConsulta;
-            MessageBox.Show("Encontrado ...");
             mostrarDatosUnicos(items.IdTarifa);
         }
     }

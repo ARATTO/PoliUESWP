@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="ClasesPorTabla\Actividad.cs" />
     <Compile Include="ClasesPorTabla\Area.cs" />
+    <Compile Include="ClasesPorTabla\DetalleSolicitud.cs" />
     <Compile Include="ClasesPorTabla\Solicitud.cs" />
     <Compile Include="ClasesPorTabla\Tarifa.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Menus\MenuTarifa.xaml.cs">
       <DependentUpon>MenuTarifa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MetodosSQLite\MetodoSQLiteDetalleSolicitud.cs" />
     <Compile Include="MetodosSQLite\MetodoSQLiteSolicitud.cs" />
     <Compile Include="MetodosSQLite\MetodosSQLiteActividad.cs" />
     <Compile Include="MetodosSQLite\MetodosSQLiteArea.cs" />
@@ -143,6 +145,12 @@
     </Compile>
     <Compile Include="Pivotes\Area\PivotAreaUpdate.xaml.cs">
       <DependentUpon>PivotAreaUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Solicitud\PivotSolicitudConsulta.xaml.cs">
+      <DependentUpon>PivotSolicitudConsulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Solicitud\PivotSolicitudInsert.xaml.cs">
+      <DependentUpon>PivotSolicitudInsert.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pivotes\Tarifa\PivotTarifaConsulta.xaml.cs">
       <DependentUpon>PivotTarifaConsulta.xaml</DependentUpon>
@@ -222,6 +230,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pivotes\Solicitud\PivotSolicitudConsulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Solicitud\PivotSolicitudInsert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pivotes\Tarifa\PivotTarifaConsulta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -266,6 +282,12 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -281,6 +303,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Sqlite, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\sqlite-net-wp8.3.8.5\lib\windowsphone8\Sqlite.winmd</HintPath>
       <Private>True</Private>

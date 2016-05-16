@@ -72,6 +72,7 @@ namespace PoliUESWP
                     db.CreateTable<Tarifa>();
                     db.CreateTable<Area>();
                     db.CreateTable<Solicitud>();
+                    db.CreateTable<DetalleSolicitud>();
                 }
 
             }

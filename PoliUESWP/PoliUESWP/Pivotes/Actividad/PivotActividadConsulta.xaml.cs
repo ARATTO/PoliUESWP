@@ -25,7 +25,6 @@ namespace PoliUESWP.Pivotes.Actividad
 
         string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
 
-        public int priori;
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
@@ -87,7 +86,6 @@ namespace PoliUESWP.Pivotes.Actividad
             txtDescripcionActividad.Text = String.Empty;
 
             pivotPrincipal.SelectedItem = itemConsulta;
-            MessageBox.Show("Encontrado ...");
             mostrarDatosUnicos(items.IdActividad);
 
         }
