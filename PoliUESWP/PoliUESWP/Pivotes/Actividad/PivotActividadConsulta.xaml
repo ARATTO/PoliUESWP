@@ -22,7 +22,7 @@
                 <StackPanel Margin="0,0,0,17">
                     <Grid Height="591">
                         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="idActividad" VerticalAlignment="Top"/>
-                        <TextBox x:Name="txtidActividad" HorizontalAlignment="Left" Height="72" Margin="108,-9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
+                        <TextBox x:Name="txtidActividad" HorizontalAlignment="Left" Height="72" Margin="108,-9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" InputScope="Number"/>
                         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,178,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top"/>
                         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="5,255,0,0" TextWrapping="Wrap" Text="Descripcion" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtDescripcionActividad" HorizontalAlignment="Left" Height="200" Margin="108,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnly="True"/>

@@ -109,6 +109,7 @@
       <DependentUpon>MenuTarifa.xaml</DependentUpon>
     </Compile>
     <Compile Include="MetodosSQLite\MetodosSQLiteActividad.cs" />
+    <Compile Include="MetodosSQLite\MetodosSQLiteTarifa.cs" />
     <Compile Include="Pivotes\Actividad\PivotActividadConsulta.xaml.cs">
       <DependentUpon>PivotActividadConsulta.xaml</DependentUpon>
     </Compile>
@@ -120,6 +121,18 @@
     </Compile>
     <Compile Include="Pivotes\Actividad\PivotActividadUpdate.xaml.cs">
       <DependentUpon>PivotActividadUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Tarifa\PivotTarifaConsulta.xaml.cs">
+      <DependentUpon>PivotTarifaConsulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Tarifa\PivotTarifaDelete.xaml.cs">
+      <DependentUpon>PivotTarifaDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Tarifa\PivotTarifaInsert.xaml.cs">
+      <DependentUpon>PivotTarifaInsert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Tarifa\PivotTarifaUpdate.xaml.cs">
+      <DependentUpon>PivotTarifaUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -160,6 +173,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pivotes\Actividad\PivotActividadUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Tarifa\PivotTarifaConsulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Tarifa\PivotTarifaDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Tarifa\PivotTarifaInsert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Tarifa\PivotTarifaUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

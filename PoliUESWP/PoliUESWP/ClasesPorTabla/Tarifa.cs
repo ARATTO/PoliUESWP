@@ -8,7 +8,7 @@ namespace PoliUESWP.ClasesPorTabla
 {
     class Tarifa
     {
-        [SQLite.Unique, SQLite.AutoIncrement]
+        [SQLite.PrimaryKey, SQLite.AutoIncrement]
         public int IdTarifa { get; set; }
 
         public int CantidadPersonas { get; set; }

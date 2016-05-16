@@ -19,27 +19,27 @@ namespace PoliUESWP.Menus
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pivotes/Tarifa/PivotTarifaInsert.xaml?", UriKind.Relative));
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pivotes/Tarifa/PivotTarifaUpdate.xaml?", UriKind.Relative));
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pivotes/Tarifa/PivotTarifaDelete.xaml?", UriKind.Relative));
         }
 
         private void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pivotes/Tarifa/PivotTarifaConsulta.xaml?", UriKind.Relative));
         }
 
         private void btnPrincipal_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/MainPage.xaml?", UriKind.Relative));
         }
     }
 }

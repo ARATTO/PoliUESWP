@@ -62,7 +62,7 @@ namespace PoliUESWP.MetodosSQLite
                         });
                         return "La Actividad con el ID : " + existing.IdActividad + " se actualiza con exito"; ;
                     }
-                    return "La Actividad con ese Carnet no existe";
+                    return "La Actividad con ese ID no existe";
                 }
             }
             else {
@@ -80,7 +80,7 @@ namespace PoliUESWP.MetodosSQLite
 
                     if (existing != null)
                     {
-                        string[] vec = new string[] { existing.IdActividad.ToString(), existing.NombreActividad.ToString(), existing.DescripcionActividad, "La Actividad anterior se elimino correctamente" };
+                        string[] vec = new string[] { existing.IdActividad.ToString(), existing.NombreActividad.ToString(), existing.DescripcionActividad, "La Actividad se elimino correctamente" };
 
                         db.RunInTransaction(() =>
                         {

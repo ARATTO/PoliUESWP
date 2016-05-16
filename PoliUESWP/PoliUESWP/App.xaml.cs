@@ -69,6 +69,7 @@ namespace PoliUESWP
                 {
 
                     db.CreateTable<Actividad>();
+                    db.CreateTable<Tarifa>();
                 }
 
             }
