@@ -97,6 +97,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClasesPorTabla\Actividad.cs" />
+    <Compile Include="ClasesPorTabla\Area.cs" />
+    <Compile Include="ClasesPorTabla\Solicitud.cs" />
     <Compile Include="ClasesPorTabla\Tarifa.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -105,10 +107,18 @@
     <Compile Include="Menus\MenuActividad.xaml.cs">
       <DependentUpon>MenuActividad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menus\MenuArea.xaml.cs">
+      <DependentUpon>MenuArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\MenuSolicitud.xaml.cs">
+      <DependentUpon>MenuSolicitud.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menus\MenuTarifa.xaml.cs">
       <DependentUpon>MenuTarifa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MetodosSQLite\MetodoSQLiteSolicitud.cs" />
     <Compile Include="MetodosSQLite\MetodosSQLiteActividad.cs" />
+    <Compile Include="MetodosSQLite\MetodosSQLiteArea.cs" />
     <Compile Include="MetodosSQLite\MetodosSQLiteTarifa.cs" />
     <Compile Include="Pivotes\Actividad\PivotActividadConsulta.xaml.cs">
       <DependentUpon>PivotActividadConsulta.xaml</DependentUpon>
@@ -121,6 +131,18 @@
     </Compile>
     <Compile Include="Pivotes\Actividad\PivotActividadUpdate.xaml.cs">
       <DependentUpon>PivotActividadUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Area\PivotAreaConsulta.xaml.cs">
+      <DependentUpon>PivotAreaConsulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Area\PivotAreaDelete.xaml.cs">
+      <DependentUpon>PivotAreaDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Area\PivotAreaInsert.xaml.cs">
+      <DependentUpon>PivotAreaInsert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pivotes\Area\PivotAreaUpdate.xaml.cs">
+      <DependentUpon>PivotAreaUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pivotes\Tarifa\PivotTarifaConsulta.xaml.cs">
       <DependentUpon>PivotTarifaConsulta.xaml</DependentUpon>
@@ -156,6 +178,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Menus\MenuArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menus\MenuSolicitud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Menus\MenuTarifa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +203,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pivotes\Actividad\PivotActividadUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Area\PivotAreaConsulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Area\PivotAreaDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Area\PivotAreaInsert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Area\PivotAreaUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,9 +273,7 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Imagenes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <SDKReference Include="SQLite.WP80, Version=3.12.2">
       <Name>SQLite for Windows Phone</Name>

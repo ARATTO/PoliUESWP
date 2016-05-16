@@ -19,7 +19,7 @@ namespace PoliUESWP.Pivotes.Tarifa
         public PivotTarifaConsulta()
         {
             InitializeComponent();
-            mostrarDatos();
+            MostrarDatos();
         }
         string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
 
@@ -44,7 +44,7 @@ namespace PoliUESWP.Pivotes.Tarifa
             }
             else
             {
-                mostrarDatos();
+                MostrarDatos();
                 MessageBox.Show("La Tarifa no existe");
             }
         }
@@ -61,7 +61,7 @@ namespace PoliUESWP.Pivotes.Tarifa
             listaTarifas.ItemsSource = pers;
         }
 
-        public void mostrarDatos()
+        public void MostrarDatos()
         {
             var db = new SQLiteConnection(dbPath);
             var pers = db.Table<ClasesPorTabla.Tarifa>().Where(c => c.IdTarifa > 0).ToList();

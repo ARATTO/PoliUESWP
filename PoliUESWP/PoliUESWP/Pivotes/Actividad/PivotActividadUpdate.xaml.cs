@@ -29,11 +29,17 @@ namespace PoliUESWP.Pivotes.Actividad
         {
             MetodosSQLiteActividad prueba = new MetodosSQLiteActividad();
 
-            String res = prueba.Update(dbPath, Int32.Parse(txtidActividad.Text), txtNombre.Text, txtDescripcionActividad.Text);
-            MessageBox.Show(res);
-            MostrarDatos();
-            limpiar();
-            pivotPrincipal.SelectedItem = itemDatos;
+            if (txtidActividad.Text == String.Empty)
+            {
+                MessageBox.Show("ERROR digite datos faltantes");
+            }
+            else {
+                String res = prueba.Update(dbPath, Int32.Parse(txtidActividad.Text), txtNombre.Text, txtDescripcionActividad.Text);
+                MessageBox.Show(res);
+                MostrarDatos();
+                limpiar();
+                pivotPrincipal.SelectedItem = itemDatos;
+            }
         }
 
         public void MostrarDatos() {

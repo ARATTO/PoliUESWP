@@ -41,21 +41,27 @@ namespace PoliUESWP.Pivotes.Actividad
         {
             MetodosSQLiteActividad op = new MetodosSQLiteActividad();
 
-            String[] res = op.Consulta(dbPath, Int32.Parse(txtidActividad.Text));
-
-            txtNombre.Text = res[1];
-            txtDescripcionActividad.Text = res[2];
-
-            if (res[0] != string.Empty) {
-                mostrarDatosUnicos(Int32.Parse(res[0]));
-                pivotPrincipal.SelectedItem = itemConsulta;
-            }
-            else
+            if (txtidActividad.Text == String.Empty)
             {
-                mostrarDatos();
-                MessageBox.Show("La Actividad no existe");
+                MessageBox.Show("ERROR digite su un ID valido");
             }
+            else {
+                String[] res = op.Consulta(dbPath, Int32.Parse(txtidActividad.Text));
 
+                txtNombre.Text = res[1];
+                txtDescripcionActividad.Text = res[2];
+
+                if (res[0] != string.Empty)
+                {
+                    mostrarDatosUnicos(Int32.Parse(res[0]));
+                    pivotPrincipal.SelectedItem = itemConsulta;
+                }
+                else
+                {
+                    mostrarDatos();
+                    MessageBox.Show("La Actividad no existe");
+                }
+            }
 
         }
 

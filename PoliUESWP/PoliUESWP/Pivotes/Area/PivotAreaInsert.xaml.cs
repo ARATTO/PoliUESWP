@@ -7,46 +7,42 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using System.IO;
 using Windows.Storage;
+using System.IO;
 using PoliUESWP.MetodosSQLite;
-using PoliUESWP.ClasesPorTabla;
 using SQLite;
 
-namespace PoliUESWP.Pivotes.Actividad
+namespace PoliUESWP.Pivotes.Area
 {
-    public partial class PivotActividadInsert : PhoneApplicationPage
+    public partial class PivotAreaInsert : PhoneApplicationPage
     {
-        public PivotActividadInsert()
+        public PivotAreaInsert()
         {
             InitializeComponent();
             MostrarDatos();
         }
-
         string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
-
 
         private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Menus/MenuActividad.xaml?", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Menus/MenuArea.xaml?", UriKind.Relative));
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            MetodosSQLiteActividad op = new MetodosSQLiteActividad();
+            MetodosSQLiteArea op = new MetodosSQLiteArea();
 
-            String res = op.Insert(dbPath, txtNombre.Text, txtDescripcionActividad.Text);
+            String res = op.Insert(dbPath, Int32.Parse(txtMaxPersonas.Text), txtNombreArea.Text, txtDesArea.Text);
             MessageBox.Show(res);
             MostrarDatos();
             pivotPrincipal.SelectedItem = listaDatos;
             limpiar();
-           
         }
-
-        public void MostrarDatos() {
+        public void MostrarDatos()
+        {
             var db = new SQLiteConnection(dbPath);
-            var pers = db.Table<ClasesPorTabla.Actividad>().Where(c => c.IdActividad >= 0).ToList();
-            listaActividades.ItemsSource = pers;
+            var pers = db.Table<ClasesPorTabla.Area>().Where(c => c.IdArea >= 0).ToList();
+            listaArea.ItemsSource = pers;
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
@@ -55,8 +51,9 @@ namespace PoliUESWP.Pivotes.Actividad
         }
         private void limpiar()
         {
-            txtDescripcionActividad.Text = String.Empty;
-            txtNombre.Text = String.Empty;
+            txtMaxPersonas.Text = String.Empty;
+            txtNombreArea.Text = String.Empty;
+            txtDesArea.Text = String.Empty;
         }
     }
 }

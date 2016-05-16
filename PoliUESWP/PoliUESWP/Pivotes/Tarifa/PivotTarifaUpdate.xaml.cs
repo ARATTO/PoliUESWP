@@ -37,14 +37,19 @@ namespace PoliUESWP.Pivotes.Tarifa
         {
             MetodosSQLiteTarifa prueba = new MetodosSQLiteTarifa();
 
-            String res = prueba.Update(dbPath, Int32.Parse(txtIdTarifa.Text), Int32.Parse(txtCantPersonas.Text), double.Parse(txtTarifaUnica.Text));
-            MessageBox.Show(res);
-            MostrarDatos();
-            limpiar();
-            pivotPrincipal.SelectedItem = itemDatos;
+            if (txtCantPersonas.Text == String.Empty || txtTarifaUnica.Text == String.Empty)
+            {
+                MessageBox.Show("ERROR digite los datos faltantes");
+            }
+            else {
+                String res = prueba.Update(dbPath, Int32.Parse(txtIdTarifa.Text), Int32.Parse(txtCantPersonas.Text), double.Parse(txtTarifaUnica.Text));
+                MessageBox.Show(res);
+                MostrarDatos();
+                limpiar();
+                pivotPrincipal.SelectedItem = itemDatos;
+            }
         }
         private void limpiar() {
-            txtIdTarifa.Text = String.Empty;
             txtCantPersonas.Text = String.Empty;
             txtTarifaUnica.Text = String.Empty;
         }
