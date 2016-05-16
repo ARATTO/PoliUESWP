@@ -155,6 +155,9 @@
     <Compile Include="Pivotes\Solicitud\PivotSolicitudInsert.xaml.cs">
       <DependentUpon>PivotSolicitudInsert.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pivotes\Solicitud\PivotSolicitudUpdate.xaml.cs">
+      <DependentUpon>PivotSolicitudUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pivotes\Tarifa\PivotTarifaConsulta.xaml.cs">
       <DependentUpon>PivotTarifaConsulta.xaml</DependentUpon>
     </Compile>
@@ -242,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pivotes\Solicitud\PivotSolicitudInsert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pivotes\Solicitud\PivotSolicitudUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

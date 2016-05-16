@@ -43,6 +43,40 @@ namespace PoliUESWP.MetodosSQLite
             }
         }
         ///////////////////////////////////////////////////////
+        //Metodo Update
+
+        public string Update(string dbPath, int idDetalleSolicitud, string fechaInicio, string fechaFin, double cobroTotal, int idSolicitud, int idArea)
+        {
+            if (vacios(fechaInicio, fechaFin, cobroTotal, idSolicitud, idArea) == false)
+            {
+
+                using (var db = new SQLiteConnection(dbPath))
+                {
+
+                    var existing = db.Query<DetalleSolicitud>("SELECT * FROM DetalleSolicitud").Where(c => c.IDSolicitud == idSolicitud).FirstOrDefault();
+
+                    if (existing != null)
+                    {
+                        existing.FechaInicio = fechaInicio;
+                        existing.FechaFin = fechaFin;
+                        existing.CobroTotal = cobroTotal;
+                        existing.IDSolicitud = idSolicitud;
+                        existing.IDArea = idArea;
+
+                        db.RunInTransaction(() =>
+                        {
+                            db.Update(existing);
+                        });
+                        return "Detalle de la Solicitud con el ID : " + existing.IdDetalleSolicitud + " se actualizo con exito"; ;
+                    }
+                    return "No hay Detalle asociado con esa Solicitud";
+                }
+            }
+            else {
+                return "Debe llenar todos los campos";
+            }
+        }
+        ///////////////////////////////////////////////////////
         //Metodo Consulta
 
         public string[] Consulta(string dbPath, int idSolicitud)

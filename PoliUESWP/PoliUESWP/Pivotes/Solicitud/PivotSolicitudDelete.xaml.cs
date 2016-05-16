@@ -59,7 +59,7 @@ namespace PoliUESWP.Pivotes.Solicitud
 
             txtidSolicitud.Text = items.IdSolicitud.ToString();
 
-            pivotPrincipal.SelectedItem = itemDatos;
+            pivotPrincipal.SelectedItem = itemSolicitud;
         }
         public void MostrarDatos()
         {
