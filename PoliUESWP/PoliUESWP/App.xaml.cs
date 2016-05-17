@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.IO;
 using SQLite;
 using PoliUESWP.ClasesPorTabla;
+using Windows.Storage;
 
 namespace PoliUESWP
 {
@@ -77,9 +78,147 @@ namespace PoliUESWP
 
             }
             /////////////////////////////////
-       }
+            AgregarDatos();
+            /////////////////////////////////
+        }
 
-           
+        /////////////////////////////////
+        public void AgregarDatos()
+        {
+            string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+            //Actividad
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Academica",
+                        DescripcionActividad = "Enseñanza y aprendizaje"
+                    });
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Cultural",
+                        DescripcionActividad = "Actividad Cultural"
+                    });
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Deportiva",
+                        DescripcionActividad = "Para hacer deportes :v "
+                    });
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Politica",
+                        DescripcionActividad = "Caracter Politico"
+                    });
+                });
+            }
+            //Tarifa
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 10,
+                        TarifaUnica = 10.0
+                    });
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 30,
+                        TarifaUnica = 50.0
+                    });
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 50,
+                        TarifaUnica = 100.0
+                    });
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 100,
+                        TarifaUnica = 150.5
+                    });
+                });
+            }
+            //Area
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Area()
+                    {
+                        MaxPersonas = 30,
+                        NombreArea = "Papi Futbol",
+                        DescArea = "Cancha para Maitros"
+                    });
+                    db.Insert(new Area()
+                    {
+                        MaxPersonas = 50,
+                        NombreArea = "Voleybol",
+                        DescArea = "Jugar Voleybol"
+                    });
+                    db.Insert(new Area()
+                    {
+                        MaxPersonas = 60,
+                        NombreArea = "BasketBall",
+                        DescArea = "Jugar Basket :v"
+                    });
+                });
+            }
+            //Solicitud
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Solicitud()
+                    {
+                        Motivo = "Jugar",
+                        Fecha = "08/16/2016",
+                        Actividad = 1,
+                        Tarifa = 1
+                    });
+                    db.Insert(new Solicitud()
+                    {
+                        Motivo = "Graduacion",
+                        Fecha = "06/06/2666",
+                        Actividad = 2,
+                        Tarifa = 3
+                    });
+                });
+            }
+            //Detalle Solicitud
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new DetalleSolicitud()
+                    {
+                        FechaInicio = "08/15/2016",
+                        FechaFin = "08/17/2016",
+                        CobroTotal = 500.48,
+                        IDSolicitud = 1,
+                        IDArea = 2
+                    });
+                    db.Insert(new DetalleSolicitud()
+                    {
+                        FechaInicio = "09/17/2016",
+                        FechaFin = "09/18/2016",
+                        CobroTotal = 84.7,
+                        IDSolicitud = 2,
+                        IDArea = 1
+                    });
+                });
+            }
+        }
+
+        ////////////////////////////////
+
+
         private async Task<bool> FileExists(string fileName) {
                 var result = false;
                 try
