@@ -43,8 +43,16 @@
                         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="23,241,0,0" TextWrapping="Wrap" Text="Descripcion" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtDesArea" HorizontalAlignment="Left" Height="154" Margin="191,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
                         <Button x:Name="btnLimpiar" Content="LIMPIAR" HorizontalAlignment="Left" Margin="191,509,0,0" VerticalAlignment="Top" Width="265" Click="btnLimpiar_Click"/>
-                        <Button x:Name="btnActualizar" Content="ACTUALIZAR" HorizontalAlignment="Left" Margin="191,370,0,0" VerticalAlignment="Top" Width="265" Height="139" Click="btnActualizar_Click"/>
-                        <Button x:Name="btnMenu" Content="ATRAS" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Height="211" Width="168" Click="btnMenu_Click"/>
+                        <Button x:Name="btnActualizar" HorizontalAlignment="Left" Margin="191,370,0,0" VerticalAlignment="Top" Width="265" Height="139" Click="btnActualizar_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Toolkit.Content/ApplicationBar.Check.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="btnMenu" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Height="211" Width="168" Click="btnMenu_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="None" ImageSource="/Assets/ApplicationIcon.png"/>
+                            </Button.Background>
+                        </Button>
                     </Grid>
                 </StackPanel>
             </phone:PivotItem>

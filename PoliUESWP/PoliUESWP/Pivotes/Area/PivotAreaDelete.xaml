@@ -44,8 +44,19 @@
                         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="23,320,0,0" TextWrapping="Wrap" Text="Descripcion" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtDesArea" HorizontalAlignment="Left" Height="139" Margin="191,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" IsReadOnly="True"/>
                         <Button x:Name="btnLimpiar" Content="LIMPIAR" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" Width="200" Click="btnLimpiar_Click" Height="92"/>
-                        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" Margin="191,-7,0,0" VerticalAlignment="Top" Width="265" Height="172" Click="btnBorrar_Click"/>
-                        <Button x:Name="btnMenu" Content="ATRAS" HorizontalAlignment="Left" Margin="0,470,0,0" VerticalAlignment="Top" Height="111" Width="456" Click="btnMenu_Click"/>
+                        <Button x:Name="btnBorrar" HorizontalAlignment="Left" Margin="191,-7,0,0" VerticalAlignment="Top" Width="265" Height="172" Click="btnBorrar_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Toolkit.Content/ApplicationBar.Delete.png"/>
+                            </Button.Background>
+                            <Button.Foreground>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Toolkit.Content/ApplicationBar.Delete.png"/>
+                            </Button.Foreground>
+                        </Button>
+                        <Button x:Name="btnMenu" HorizontalAlignment="Left" Margin="0,470,0,0" VerticalAlignment="Top" Height="111" Width="456" Click="btnMenu_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/ApplicationIcon.png"/>
+                            </Button.Background>
+                        </Button>
                     </Grid>
                 </StackPanel>
             </phone:PivotItem>

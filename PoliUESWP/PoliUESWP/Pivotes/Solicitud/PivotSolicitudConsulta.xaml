@@ -64,7 +64,11 @@
                         <TextBlock x:Name="textFechaFin" HorizontalAlignment="Left" Margin="228,390,0,0" TextWrapping="Wrap" Text="Fecha Fin" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtFechaFin" HorizontalAlignment="Left" Height="76" Margin="214,423,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="242" IsReadOnly="True"/>
 
-                        <Button x:Name="btnMenu" Content="Menu" Margin="0,505,0,0" VerticalAlignment="Top" Click="btnMenu_Click" Height="86" HorizontalAlignment="Left" Width="456"/>
+                        <Button x:Name="btnMenu"  Margin="0,505,0,0" VerticalAlignment="Top" Click="btnMenu_Click" Height="86" HorizontalAlignment="Left" Width="456">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/ApplicationIcon.png"/>
+                            </Button.Background>
+                        </Button>
 
                     </Grid>
                 </StackPanel>

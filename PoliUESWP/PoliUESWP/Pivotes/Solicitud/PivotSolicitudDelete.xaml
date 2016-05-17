@@ -37,11 +37,22 @@
                     <Grid Height="591">
                         <TextBlock x:Name="textidSolicitud" HorizontalAlignment="Left" Margin="101,93,0,0" TextWrapping="Wrap" Text="idSolicitud" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtidSolicitud" HorizontalAlignment="Left" Height="72" Margin="199,68,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="155" InputScope="Number"/>
-                        <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" Click="btnBorrar_Click" Width="446" Height="191"/>
+                        <Button x:Name="btnBorrar" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" Click="btnBorrar_Click" Width="446" Height="191">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Toolkit.Content/ApplicationBar.Delete.png"/>
+                            </Button.Background>
+                            <Button.Foreground>
+                                <ImageBrush ImageSource="/Toolkit.Content/ApplicationBar.Delete.png"/>
+                            </Button.Foreground>
+                        </Button>
 
 
 
-                        <Button x:Name="btnMenu" Content="Menu" Margin="0,416,0,0" VerticalAlignment="Top" Click="btnMenu_Click" Height="175" HorizontalAlignment="Left" Width="456"/>
+                        <Button x:Name="btnMenu" Margin="0,416,0,0" VerticalAlignment="Top" Click="btnMenu_Click" Height="175" HorizontalAlignment="Left" Width="456">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Assets/ApplicationIcon.png" Stretch="None"/>
+                            </Button.Background>
+                        </Button>
 
                     </Grid>
                 </StackPanel>

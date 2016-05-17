@@ -28,7 +28,11 @@
                         <TextBox x:Name="txtDescripcionActividad" HorizontalAlignment="Left" Height="200" Margin="108,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnly="True"/>
                         <Button x:Name="btnLimpiar" Content="LIMPIAR" HorizontalAlignment="Left" Margin="313,63,0,0" VerticalAlignment="Top" Width="143" Click="btnLimpiar_Click" Height="110"/>
                         <Button x:Name="btnBuscar" Content="BUSCAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="110" Click="btnBuscar_Click" Margin="108,63,0,0"/>
-                        <Button x:Name="btnMenu" Content="ATRAS" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Height="121" Width="436" Click="btnMenu_Click"/>
+                        <Button x:Name="btnMenu" Content="" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Height="121" Width="436" Click="btnMenu_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/ApplicationIcon.png"/>
+                            </Button.Background>
+                        </Button>
                         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="72" Margin="108,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnly="True"/>
                     </Grid>
                 </StackPanel>

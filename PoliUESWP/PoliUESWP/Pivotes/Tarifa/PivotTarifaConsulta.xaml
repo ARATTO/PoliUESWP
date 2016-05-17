@@ -29,7 +29,11 @@
                         <TextBox x:Name="txtTarifaUnica" HorizontalAlignment="Left" Height="78" Margin="178,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" IsReadOnly="True"/>
                         <Button x:Name="btnLimpiar" Content="LIMPIAR" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="173" Click="btnLimpiar_Click" Height="110"/>
                         <Button x:Name="btnBuscar" Content="BUSCAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="278" Height="110" Click="btnBuscar_Click" Margin="178,63,0,0"/>
-                        <Button x:Name="btnMenu" Content="ATRAS" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Height="121" Width="436" Click="btnMenu_Click"/>
+                        <Button x:Name="btnMenu" Content="" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Height="121" Width="436" Click="btnMenu_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/ApplicationIcon.png"/>
+                            </Button.Background>
+                        </Button>
                     </Grid>
                 </StackPanel>
             </phone:PivotItem>

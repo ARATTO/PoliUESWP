@@ -30,8 +30,14 @@
                         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="23,320,0,0" TextWrapping="Wrap" Text="Descripcion" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtDesArea" HorizontalAlignment="Left" Height="139" Margin="191,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" IsReadOnly="True"/>
                         <Button x:Name="btnLimpiar" Content="LIMPIAR" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" Width="200" Click="btnLimpiar_Click" Height="92"/>
-                        <Button x:Name="btnBuscar" Content="BUSCAR" HorizontalAlignment="Left" Margin="191,-7,0,0" VerticalAlignment="Top" Width="265" Height="172" Click="btnBuscar_Click"/>
-                        <Button x:Name="btnMenu" Content="ATRAS" HorizontalAlignment="Left" Margin="0,470,0,0" VerticalAlignment="Top" Height="111" Width="456" Click="btnMenu_Click"/>
+                        <Button x:Name="btnBuscar" Content="BUSCAR" HorizontalAlignment="Left" Margin="191,-7,0,0" VerticalAlignment="Top" Width="265" Height="172" Click="btnBuscar_Click">
+                            
+                        </Button>
+                        <Button x:Name="btnMenu" Content="" HorizontalAlignment="Left" Margin="0,470,0,0" VerticalAlignment="Top" Height="111" Width="456" Click="btnMenu_Click">
+                            <Button.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/ApplicationIcon.png"/>
+                            </Button.Background>
+                        </Button>
                     </Grid>
                 </StackPanel>
             </phone:PivotItem>
