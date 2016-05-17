@@ -8,6 +8,10 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PoliUESWP.Resources;
+using System.IO;
+using Windows.Storage;
+using SQLite;
+using PoliUESWP.ClasesPorTabla;
 
 namespace PoliUESWP
 {
@@ -20,7 +24,9 @@ namespace PoliUESWP
 
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
+            AgregarDatos();
         }
+        string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
 
         private void btnActividad_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +48,139 @@ namespace PoliUESWP
             NavigationService.Navigate(new Uri("/Menus/MenuSolicitud.xaml?", UriKind.Relative));
         }
 
+
+        public void AgregarDatos()
+        {
+            //Actividad
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Academica",
+                        DescripcionActividad = "Enseñanza y aprendizaje"
+                    });
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Cultural",
+                        DescripcionActividad = "Actividad Cultural"
+                    });
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Deportiva",
+                        DescripcionActividad = "Para hacer deportes :v "
+                    });
+                    db.Insert(new Actividad()
+                    {
+                        NombreActividad = "Politica",
+                        DescripcionActividad = "Caracter Politico"
+                    });
+                });
+            }
+            //Tarifa
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 10,
+                        TarifaUnica = 10.0
+                    });
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 30,
+                        TarifaUnica = 50.0
+                    });
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 50,
+                        TarifaUnica = 100.0
+                    });
+                    db.Insert(new Tarifa()
+                    {
+                        CantidadPersonas = 100,
+                        TarifaUnica = 150.5
+                    });
+                });
+            }
+            //Area
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Area()
+                    {
+                        MaxPersonas = 30,
+                        NombreArea = "Papi Futbol",
+                        DescArea = "Cancha para Maitros"
+                    });
+                    db.Insert(new Area()
+                    {
+                        MaxPersonas = 50,
+                        NombreArea = "Voleybol",
+                        DescArea = "Jugar Voleybol"
+                    });
+                    db.Insert(new Area()
+                    {
+                        MaxPersonas = 60,
+                        NombreArea = "BasketBall",
+                        DescArea = "Jugar Basket :v"
+                    });
+                });
+            }
+            //Solicitud
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new Solicitud()
+                    {
+                        Motivo = "Jugar",
+                        Fecha = "08/16/2016",
+                        Actividad = 1,
+                        Tarifa = 1
+                    });
+                    db.Insert(new Solicitud()
+                    {
+                        Motivo = "Graduacion",
+                        Fecha = "06/06/2666",
+                        Actividad = 2,
+                        Tarifa = 3
+                    });
+                });
+            }
+            //Detalle Solicitud
+            using (var db = new SQLiteConnection(dbPath))
+            {
+
+                db.RunInTransaction(() =>
+                {
+                    db.Insert(new DetalleSolicitud()
+                    {
+                        FechaInicio = "",
+                        FechaFin = "",
+                        CobroTotal = 500.48,
+                        IDSolicitud = 1,
+                        IDArea = 2
+                    });
+                    db.Insert(new DetalleSolicitud()
+                    {
+                        FechaInicio = "",
+                        FechaFin = "",
+                        CobroTotal = 84.7,
+                        IDSolicitud = 2,
+                        IDArea = 1
+                    });
+                });
+            }
+
+        }
 
         // Código de ejemplo para compilar una ApplicationBar traducida
         //private void BuildLocalizedApplicationBar()
